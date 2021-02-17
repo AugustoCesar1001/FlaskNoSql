@@ -102,6 +102,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+Flask_NOSQL
 .env
 .venv
 env/
