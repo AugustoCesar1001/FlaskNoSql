@@ -22,3 +22,7 @@ def mongo_update_user(id, username, hashed_password, name, email, cellphone):
     user = mongo.db.users.update_one({'_id' : ObjectId(id)}, {'$set' :
                 {'username': username, 'password': hashed_password, 'name': name, 'email' : email, 'cellphone': cellphone}})
     return user
+
+def mongo_delete_user(id):
+    user = mongo.db.users.delete_one({'_id': ObjectId(id)})
+    return user

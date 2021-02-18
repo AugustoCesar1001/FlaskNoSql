@@ -1,12 +1,9 @@
-from functools import update_wrapper
-from flask import Flask, request, jsonify, Response
+from flask import Flask, request, Response
 from flask_restful import Resource
 from bson import json_util
 from werkzeug.security import generate_password_hash
-from ..models.mongodb import mongo_created_user, mongo_get_user, mongo_update_user
+from ..models.mongodb import mongo_created_user, mongo_get_user, mongo_update_user, mongo_delete_user
 from .error import error
-from .response import response
-
 
 
 
@@ -66,6 +63,16 @@ class Usuarios(Resource):
             return response, 201
         except:
             return error()
+
+    def delete(self):
+        id = request.json['id']
+        try:
+            mongo_delete_user(id)
+            response = {'User ID: ' + id + ' Was Deleted Success!'}
+            return Response(response, mimetype='application/json')
+        except:
+            return error()
+
 
 
 
