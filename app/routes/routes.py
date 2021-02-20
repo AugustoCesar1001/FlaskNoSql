@@ -1,5 +1,5 @@
 from app import api
-from ..views.users import Usuarios
+from ..models.users import Usuarios
 from ..views.listemUsers import ListemUsers
 
 

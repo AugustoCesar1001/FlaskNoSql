@@ -3,7 +3,7 @@ from flask_restful import Resource
 from bson import json_util
 from werkzeug.security import generate_password_hash
 from ..models.mongodb import mongo_created_user, mongo_get_user, mongo_update_user, mongo_delete_user
-from .error import error
+from ..views.error import error
 
 
 
